@@ -18,6 +18,8 @@ Trying to balance exploration and exploitation, and avoid enumerating by brute f
 
 **Constrained MH-MCMC sampling**: once we've identified which positions to mutate, we use Metropolis criterion to *decide whether to accept the mutation*. For those occurring in predefined regions (particularly the enzyme's active site), the new codon must be synonymous to be accepted. Codons that are swapped to stop codons are also automatically rejected.
 
+![Sequence optimization with MCMC sampling](/img/seqMCMCsampling.png)
+
 ---
 
 ## Limitations of this computational pipeline
