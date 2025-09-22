@@ -20,6 +20,8 @@ Trying to balance exploration and exploitation, and avoid enumerating by brute f
 
 ![Sequence optimization with MCMC sampling](/img/seqMCMCsampling.png)
 
+Reference: Ruffolo, J.A., Madani, A. Designing proteins with language models. Nat Biotechnol 42, 200–202 (2024). https://doi.org/10.1038/s41587-024-02123-4 (for the figure above; 'optimizing sequences through Markov chain Monte Carlo sampling with an LM')
+
 ---
 
 ## Limitations of this computational pipeline
