@@ -6,6 +6,11 @@ This project was developed as the dry-lab component of my iGEM team’s syntheti
 
 The central idea behind the pipeline is that the base model (in this case [Evo-1](https://github.com/evo-design/evo/)) captures general *prokaryotic* genomic patterns, while fine-tuning on the target host species' DNA corpus enables it to learn host-specific contextual information. This, in turn, helps reveal how 'host-like' a candidate sequence is, thereby guiding sequence optimization. This 'mutagenesis' step is carried out via an iterative, directed-evolution–like MH-MCMC sampling procedure, which recursively proposes point mutations on the current sequence while rejecting nonsense mutations and protecting the enzyme's active site from non-synonymous substitutions. Finally, optimized sequences are evaluated by calculating CAI and GC content to assess host compatibility, and by performing structural predictions to compute further metrics and generate PyMol pics.
 
+
+![Sequence optimization with MCMC sampling](/img/seqMCMCsampling.png)
+
+Reference: Ruffolo, J.A., Madani, A. Designing proteins with language models. Nat Biotechnol 42, 200–202 (2024). https://doi.org/10.1038/s41587-024-02123-4 *(for the figure above; 'optimizing sequences through Markov chain Monte Carlo sampling with an LM')*
+
 ---
 
 ## The search for a better sequence...
@@ -17,10 +22,6 @@ Trying to balance exploration and exploitation, and avoid enumerating by brute f
 (*Note that this idea isn't applicable with Evo-1 since its StripedHyena architecture doesn't support `inputs_embeds` *(input embeddings are needed since gradients can only flow through continuous tensors rather than discrete ids)* as a kwarg in the `forward()` method... Tried a few workarounds but didn't work as well (so sad). However, a demo of running this check via [Nucleotide Transformer](https://github.com/instadeepai/nucleotide-transformer) (which does support that kwarg; however, due to its way of tokenization, the performance of the analysis is very poor...) can be seen in the notebook. For Evo-1, we'll just randomly propose positions to mutate...*)
 
 **Constrained MH-MCMC sampling**: once we've identified which positions to mutate, we use Metropolis criterion to *decide whether to accept the mutation*. For those occurring in predefined regions (particularly the enzyme's active site), the new codon must be synonymous to be accepted. Codons that are swapped to stop codons are also automatically rejected.
-
-![Sequence optimization with MCMC sampling](/img/seqMCMCsampling.png)
-
-Reference: Ruffolo, J.A., Madani, A. Designing proteins with language models. Nat Biotechnol 42, 200–202 (2024). https://doi.org/10.1038/s41587-024-02123-4 (for the figure above; 'optimizing sequences through Markov chain Monte Carlo sampling with an LM')
 
 ---
 
