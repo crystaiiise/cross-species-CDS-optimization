@@ -45,7 +45,7 @@ Trying to balance exploration and exploitation, and avoid enumerating by brute f
 
 ## Background information about our iGEM project
 
-Our project aims to mitigate plastic pollution by engineering Streptomyces lividans, a G+ bacterium abundant in soil, to degrade low-density polyethylene (LDPE). We plan to achieve this by introducing the alkane monooxygenase gene (alkB) from Rhodococcus erythropolis and evaluating its efficacy in LDPE breakdown.
+Our project aims to mitigate plastic pollution by engineering *Streptomyces lividans*, a G+ bacterium abundant in soil, to degrade low-density polyethylene (LDPE). We plan to achieve this by introducing the alkane monooxygenase gene (alkB) from *Rhodococcus erythropolis* and evaluating its efficacy in LDPE breakdown.
 
 ---
 
